@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage('Clone Code') {
-            git branch: 'main', url: 'https://github.com/KumaraswamyBakkashetti/login-app2.git'
+            steps {
+                git branch: 'main', url: 'https://github.com/KumaraswamyBakkashetti/login-app2.git'
+            }
 
         }
 
