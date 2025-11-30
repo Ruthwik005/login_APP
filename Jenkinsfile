@@ -20,12 +20,44 @@ pipeline {
         }
     }
 
-    post {
+   post {
         success {
-            echo 'build success'
+            echo '🎯 BUILD SUCCESS — All stages completed!'
+
+            emailext (
+                subject: "✅ Jenkins Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                ✅ BUILD SUCCESSFUL!
+
+                Job Name   : ${env.JOB_NAME}
+                Build No   : ${env.BUILD_NUMBER}
+                Status     : SUCCESS
+                Build URL  : ${env.BUILD_URL}
+
+                Regards,
+                Jenkins Automation
+                """,
+                to: "kumaraswamybakkashetti@gmail.com"
+            )
         }
+
         failure {
-            echo 'build failure'
+            echo '❌ BUILD FAILED!'
+
+            emailext (
+                subject: "❌ Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                ❌ BUILD FAILED!
+
+                Job Name   : ${env.JOB_NAME}
+                Build No   : ${env.BUILD_NUMBER}
+                Status     : FAILED
+                Build URL  : ${env.BUILD_URL}
+
+                Please check immediately.
+                """,
+                to: "kumaraswamybakkashetti@gmail.com"
+            )
         }
     }
 }
