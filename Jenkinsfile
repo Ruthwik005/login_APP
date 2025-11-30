@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/KumaraswamyBakkashetti/login-app2.git'
+                git branch: 'main', url: 'https://github.com/Ruthwik005/login_APP.git'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                 Regards,
                 Jenkins Automation
                 """,
-                to: "kumaraswamybakkashetti@gmail.com"
+                to: "chamala.ruthwik@gmail.com"
             )
         }
 
@@ -56,7 +56,7 @@ pipeline {
 
                 Please check immediately.
                 """,
-                to: "kumaraswamybakkashetti@gmail.com"
+                to: "chamala.ruthwik@gmail.com"
             )
         }
     }
